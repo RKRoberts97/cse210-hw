@@ -9,7 +9,7 @@ class Program
         Menu _menu = new Menu();
         string _menu_selection = "0";
 
-        
+        // My creative portion was adding a border to entries that could be changed
         while ( _menu_selection != "5" ){
             _menu.Display();
             Console.WriteLine("");

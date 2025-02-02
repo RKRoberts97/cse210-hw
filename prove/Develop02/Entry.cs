@@ -11,6 +11,8 @@ public class Entry
 
         public string _entry = "";
 
+        string _border = "----------------------------------------------------------------------------------------------------";
+
 
 
 
@@ -21,6 +23,7 @@ public class Entry
         }
         public void CreateEntry()
         {
+            
             // Get the current date 
             DateTime theCurrentTime = DateTime.Now;
             _date = theCurrentTime.ToShortDateString();
@@ -34,8 +37,19 @@ public class Entry
             _text = Console.ReadLine();
 
             // Compile entry into a proper format
-            _entry = "Date: " + _date + " Prompt: " + _prompt + "\n" + _text + "\n ";
+            _entry = _border + "\n" + "Date: " + _date + " Prompt: " + _prompt + "\n" + _text + "\n" + _border + "\n";
 
 
+        }
+        public void ChangeBorder()
+        {
+            Console.WriteLine("What symbol do you want to border your entries?");
+            string _symbol = Console.ReadLine();
+            int i = 0;
+            _border = "";
+            while (i < 101 ){
+                _border = _border + _symbol;
+                i++;
+            }
         }
     }

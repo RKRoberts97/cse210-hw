@@ -10,6 +10,7 @@ public class Journal
 
 
 
+
         public void Display()
         {
             foreach (var entry in _entries){
@@ -47,7 +48,16 @@ public class Journal
         public void AddEntry()
         {
             Entry _new_entry = new Entry();
+             
+            Console.WriteLine("Would you liek a different border?");
+            Console.Write("Enter 1 if yes: ");
+            string _border_check = Console.ReadLine();
+            if ( _border_check =="1" ){
+                _new_entry.ChangeBorder();
+            }
+
             _new_entry.CreateEntry();
             _entries.Add(_new_entry);
         }
+
     }
