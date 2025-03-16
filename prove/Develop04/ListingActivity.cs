@@ -44,7 +44,7 @@ public class ListingActivity : Activity
 
         while (DateTime.Now < endTime)
         {
-            string? item = Console.ReadLine();
+            string item = Console.ReadLine();
             if (!string.IsNullOrWhiteSpace(item))
             {
                 userItems.Add(item);
