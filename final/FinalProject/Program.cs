@@ -6,4 +6,8 @@ class Program
     {
         Console.WriteLine("Hello FinalProject World!");
     }
+    public void Menu()
+    {
+        
+    }
 }
