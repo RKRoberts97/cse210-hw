@@ -1,13 +1,27 @@
 public class GoldFish : Fish
 {
-    public GoldFish(string fishName, int value, string size) : base(fishName, value, size) {}
-    
+    public GoldFish(string fishName, int baseValue) : base(fishName, baseValue)
+    {
+
+    }
+
     public override void Display()
     {
-        
+        Console.WriteLine("><_>");
     }
-    public override bool CatchCondition()
+
+    public override string RandomizeSize(out double multiplier)
     {
-        return true;
+        List<(string Size, double Multiplier)> sizes = new List<(string, double)>
+        {
+            ("Extra Small", 2.0),
+            ("Small", 1.5)
+        };
+
+        Random rand = new Random();
+        var chosenSize = sizes[rand.Next(sizes.Count)];
+
+        multiplier = chosenSize.Multiplier;
+        return chosenSize.Size;
     }
 }

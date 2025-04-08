@@ -1,17 +1,15 @@
 public class Trout : Fish
 {
-    public Trout(string fishName, int value, string size) : base(fishName, value, size) 
+    public Trout(string fishName, int baseValue) : base(fishName, baseValue) 
     {
 
     }
     
     public override void Display() {
-        Console.WriteLine($"Trout - Name: {FishName}, Value: {Value}, Size: {Size}");
-
+        Console.WriteLine("  ;,//;,    ,;/");
+        Console.WriteLine(" o:::::::;;///");
+        Console.WriteLine(">::::::::;;\\\\\\");
+        Console.WriteLine("  ''\\\\\\\\\\'\" ';");
     } 
-    public override bool CatchCondition() 
-    { 
 
-        return true;
-    }
 }
