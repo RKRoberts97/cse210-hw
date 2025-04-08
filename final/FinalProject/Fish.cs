@@ -38,7 +38,7 @@ public abstract class Fish
             }
         }
 
-        Console.WriteLine("Better luck next time!");
+        Console.WriteLine("\nBetter luck next time!");
         return false;
     }
 
