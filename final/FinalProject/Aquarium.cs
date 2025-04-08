@@ -3,16 +3,16 @@ using System.Runtime.CompilerServices;
 
 public class Aquarium
 {
-    private List<Fish> _fishes = new List<Fish>();
+    private List<Fish> fishes = new List<Fish>();
 
     public void AddFish(Fish fish)
     {
-        _fishes.Add(fish);
+        fishes.Add(fish);
     }
 
     public void DisplayAllFishes()
     {
-        foreach (var fish in _fishes)
+        foreach (var fish in fishes)
         {
             fish.Display();
         }
@@ -21,12 +21,10 @@ public class Aquarium
     public int GetTotalValue()
     {
         int totalValue = 0;
-
-        foreach (var fish in _fishes)
+        foreach (var fish in fishes)
         {
-            totalValue += fish.value;
+            totalValue += fish.GetValue();
         }
-
         return totalValue;
     }
 
@@ -34,36 +32,34 @@ public class Aquarium
     {
         // Display all fish with a number
         Console.WriteLine("Here are the fishes in the aquarium:");
-
-        for (int i = 0; i < _fishes.Count; i++)
+        for (int i = 0; i < fishes.Count; i++)
         {
-            Console.WriteLine($"{i + 1}. {_fishes[i].fishName}");
+            Console.WriteLine($"{i + 1}. {fishes[i]._fishName}");
         }
 
         // Ask the user to select a fish
         Console.Write("Enter the number of the fish you want to view: ");
         int response = Int32.Parse(Console.ReadLine());
-
-        if (response >= 1 && response <= _fishes.Count)
+        if (response >= 1 && response <= fishes.Count)
         {
             // Display the selected fish
-            Fish selectedFish = _fishes[response - 1];
+            Fish selectedFish = fishes[response - 1];
             selectedFish.Display();
         }
         else
         {
             Console.WriteLine("Invalid input. Please select a valid number.");
         }
-    }
 
+
+    }
     public void RemoveSpecificFish()
     {
         // Display all fish with a number
         Console.WriteLine("Here are the fishes in the aquarium:");
-
-        for (int i = 0; i < _fishes.Count; i++)
+        for (int i = 0; i < fishes.Count; i++)
         {
-            Console.WriteLine($"{i + 1}. {_fishes[i].fishName}");
+            Console.WriteLine($"{i + 1}. {fishes[i]._fishName}");
         }
 
         // Ask the user to select a fish to remove
@@ -71,12 +67,12 @@ public class Aquarium
         bool validInput = int.TryParse(Console.ReadLine(), out int response);
 
         // Validate the input and remove the fish if valid
-        if (validInput && response >= 1 && response <= _fishes.Count)
+        if (validInput && response >= 1 && response <= fishes.Count)
         {
             // Get the selected fish and remove it from the list
-            Fish selectedFish = _fishes[response - 1];
-            _fishes.RemoveAt(response - 1); // Remove fish from the list
-            Console.WriteLine($"The fish {selectedFish.fishName} has been removed.");
+            Fish selectedFish = fishes[response - 1];
+            fishes.RemoveAt(response - 1); // Remove fish from the list
+            Console.WriteLine($"The fish {selectedFish._fishName} has been removed.");
         }
         else
         {
